@@ -1,0 +1,11 @@
+<p>
+  Short url:
+  <strong><%= @shortened_url.short_code %></strong>
+  will redirect to
+  <strong><%= @shortened_url.long_url %></strong>
+  (<a href="/<%= @shortened_url.short_code %>" target="none">TEST</a> - opens in new tab)
+</p>
+
+<p>
+  <a href="/">Create another short URL</a>
+</p>

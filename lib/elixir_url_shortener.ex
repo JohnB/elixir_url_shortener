@@ -32,7 +32,7 @@ defmodule ElixirUrlShortener do
     short_code = random_short_code()
     shortener = %ElixirUrlShortener{short_code: short_code, long_url: long_url}
     state = Map.put(state, short_code, shortener)
-    {:reply, short_code, state}
+    {:reply, shortener, state}
   end
 
   def handle_call({:lookup_long_url, short_code}, _from, state) do
