@@ -25,7 +25,8 @@ Additional points:
 
 * [x] Proof of Concept: Rails app that responds to http://localhost:3000/shortURL with a 301
 to the real destination.
-* [ ] Minimal Viable Product: Elixir/phoenix app directly maps URLs to DB rows (just like the Rails POC)
+* [x] Minimal Viable Product: Elixir/phoenix app uses in-memory GenServer to lookup URLs - but will get lost on a restart.
+* [ ] Multi-user: Deploy to gigalixir
 * [ ] Hockey Stick: pay for larger DB and more and more and more app servers.
 * [ ] Scalable: elixir process holds an LRU cache (since this is mostly read-only data) which falls back to a DB lookup if not found in the cache. This can be deployed to multiple servers, with no need to synch their LRU caches (due to the DB fallback).
 
@@ -44,6 +45,7 @@ open http://localhost:4000/
 
 ## Known Issues
 
+1. Does not yet work on [gigalixir](https://mad-academic-harvestmen.gigalixirapp.com/).
 1. Has no concept of users, authentication, or security - anyone can create (or update!) short URLs.
 1. Sub-minimal tests.
 1. No retries for random (less than 1 in 100 billion) collisions when creating a short URL - the user will get a uniqueness-constraint error (but it will probably work fine if they just retry).
