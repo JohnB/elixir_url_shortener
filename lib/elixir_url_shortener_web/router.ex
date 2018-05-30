@@ -16,7 +16,8 @@ defmodule ElixirUrlShortenerWeb.Router do
   scope "/", ElixirUrlShortenerWeb do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/:short_code", PageController, :index
+    post "/create_short_code", PageController, :shorten_url
   end
 
   # Other scopes may use custom stacks.
