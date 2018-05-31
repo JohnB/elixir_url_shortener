@@ -9,3 +9,4 @@
     <%= submit "Create Short URL", class: "btn btn-primary" %>
   </div>
 <% end %>
+<%= render("list.html") %>

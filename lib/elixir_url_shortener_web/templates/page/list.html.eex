@@ -1,0 +1,9 @@
+<h2>Previously shortened URLs</h2>
+<%= for shortener <- ElixirUrlShortener.list() do %>
+  <p>
+    <samp>
+      <a target="none" href="/<%= shortener.short_code %>"><%= shortener.short_code %></a>
+    </samp>
+    - <%= shortener.long_url %>
+  </p>
+<%= end %>

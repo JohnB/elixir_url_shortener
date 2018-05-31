@@ -22,6 +22,10 @@ defmodule ElixirUrlShortener do
     {:ok, our_pid} = start_link()
     GenServer.call(our_pid, {:lookup_long_url, short_code})
   end
+  def list do
+    {:ok, our_pid} = start_link()
+    GenServer.call(our_pid, {:list})
+  end
 
   # Server side
   def init(:ok) do
@@ -37,6 +41,11 @@ defmodule ElixirUrlShortener do
 
   def handle_call({:lookup_long_url, short_code}, _from, state) do
     {:reply, Map.fetch(state, short_code), state}
+  end
+  
+  def handle_call({:list}, _from, state) do
+    sorted = Map.values(state) |> Enum.sort(fn(a, b) -> a.long_url < b.long_url end)
+    {:reply, sorted, state}
   end
   
   @short_code_length 8
