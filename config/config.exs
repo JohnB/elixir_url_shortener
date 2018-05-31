@@ -12,6 +12,7 @@ config :elixir_url_shortener,
 # Configures the endpoint
 config :elixir_url_shortener, ElixirUrlShortenerWeb.Endpoint,
   url: [host: "localhost"],
+  secret_key_base: "${SECRET_KEY_BASE}",
   secret_key_base: "dFiNDwkUVp1iQ6PQVvST2T7cWDyqYTGO9t9fYb/jPempFhDJWyHSJLewryUhieEm",
   render_errors: [view: ElixirUrlShortenerWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: ElixirUrlShortener.PubSub,

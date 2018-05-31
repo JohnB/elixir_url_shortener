@@ -10,9 +10,9 @@ defmodule ElixirUrlShortenerWeb.PageController do
     short_code = params["short_code"]
     long_url = ElixirUrlShortener.lookup_long_url(short_code)
     case long_url do
-      :error -> Phoenix.View.render text(conn, "NOT FOUND")
+      :error -> text(conn, "NOT FOUND")
       {:ok, shortener} -> redirect(conn, external: shortener.long_url)
-      _ -> Phoenix.View.render text(conn, "INTERNAL ERROR")
+      _ -> text(conn, "INTERNAL ERROR")
     end
   end
   
