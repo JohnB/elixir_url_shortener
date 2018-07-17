@@ -50,3 +50,4 @@ open http://localhost:4000/
 1. Sub-minimal tests.
 1. No retries for random (less than 1 in 100 billion) collisions when creating a short URL - the user will get a uniqueness-constraint error (but it will probably work fine if they just retry).
 1. Does not yet RickRoll random users.
+1. Yet.
